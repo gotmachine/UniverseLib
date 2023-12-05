@@ -65,12 +65,6 @@ namespace UniverseLib
                     return true;
             }
 
-#if IL2CPP
-            if (objA is Il2CppSystem.Object cppA && objB is Il2CppSystem.Object cppB
-                && cppA.Pointer == cppB.Pointer)
-                return true;
-#endif
-
             return false;
         }
 
@@ -99,10 +93,7 @@ namespace UniverseLib
             {
                 if (e.InnerException == null)
                     break;
-#if IL2CPP
-                if (e.InnerException is System.Runtime.CompilerServices.RuntimeWrappedException)
-                    break;
-#endif
+
                 e = e.InnerException;
             }
 

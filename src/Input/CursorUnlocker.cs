@@ -38,7 +38,9 @@ namespace UniverseLib.Input
             lastLockMode = Cursor.lockState;
             lastVisibleState = Cursor.visible;
 
-            InitPatches();
+            // DISABLED (GOT) : can't patch native methods with non-X harmony
+            // InitPatches();
+
             UpdateCursorControl();
 
             try

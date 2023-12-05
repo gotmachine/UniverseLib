@@ -28,12 +28,7 @@ namespace UniverseLib
         {
             ReflectionPatches.Init();
 
-            Instance =
-#if IL2CPP
-                new Il2CppReflection();
-#else
-                new ReflectionUtility();
-#endif
+            Instance = new ReflectionUtility();
 
             Instance.Initialize();
         }

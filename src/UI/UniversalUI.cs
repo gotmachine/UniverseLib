@@ -180,7 +180,8 @@ namespace UniverseLib.UI
 
         private static void LoadBundle()
         {
-            SetupAssetBundlePatches();
+            // DISABLED (GOT) : can't patch native methods with non-X harmony
+            // SetupAssetBundlePatches();
 
             try
             {
@@ -268,9 +269,9 @@ namespace UniverseLib.UI
         static void SetupAssetBundlePatches()
         {
             Universe.Patch(
-                ReflectionUtility.GetTypeByName("UnityEngine.AssetBundle"), 
-                "UnloadAllAssetBundles", 
-                MethodType.Normal, 
+                ReflectionUtility.GetTypeByName("UnityEngine.AssetBundle"),
+                "UnloadAllAssetBundles",
+                MethodType.Normal,
                 prefix: AccessTools.Method(typeof(UniversalUI), nameof(Prefix_UnloadAllAssetBundles)));
         }
 
