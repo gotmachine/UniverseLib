@@ -134,14 +134,7 @@ namespace UniverseLib.Input
                 PropertyInfo supportedProp = t_Settings.GetProperty("supportedDevices", BindingFlags.Public | BindingFlags.Instance);
                 object supportedDevices = supportedProp.GetValue(settings, null);
                 // An empty supportedDevices list means all devices are supported.
-#if IL2CPP
-                // weird hack for il2cpp, use the implicit operator and cast Il2CppStringArray to ReadOnlyArray<string>
-                object[] emptyStringArray = new object[] { new Il2CppStringArray(0) };
-                MethodInfo op_implicit = supportedDevices.GetActualType().GetMethod("op_Implicit", BindingFlags.Static | BindingFlags.Public);
-                supportedProp.SetValue(settings, op_implicit.Invoke(null, emptyStringArray), null);
-#else
                 supportedProp.SetValue(settings, Activator.CreateInstance(supportedDevices.GetActualType(), new object[] { new string[0] }), null);
-#endif
             }
             catch (Exception ex)
             {

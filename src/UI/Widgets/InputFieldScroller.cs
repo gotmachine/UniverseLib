@@ -50,11 +50,7 @@ namespace UniverseLib.UI.Widgets
             ViewportRect = ContentRect.transform.parent.GetComponent<RectTransform>();
 
             if (!RootScaler)
-#if IL2CPP
-                RootScaler = inputField.Component.gameObject.GetComponentInParent(Il2CppType.Of<CanvasScaler>()).TryCast<CanvasScaler>();
-#else
                 RootScaler = inputField.Component.gameObject.GetComponentInParent<CanvasScaler>();
-#endif
         }
 
         public override void Update()

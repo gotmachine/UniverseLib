@@ -165,15 +165,6 @@ namespace UniverseLib.Utility
 
             toString = ReflectionUtility.ProcessTypeInString(type, toString);
 
-#if IL2CPP
-            if (value is Il2CppSystem.Type cppType)
-            {
-                Type monoType = Il2CppReflection.GetUnhollowedType(cppType);
-                if (monoType != null)
-                    toString = ReflectionUtility.ProcessTypeInString(monoType, toString);
-            }
-#endif
-
             return toString;
         }
     }

@@ -35,3 +35,4 @@ using UniverseLib;
 [assembly: AssemblyVersion(UniverseLib.Universe.VERSION)]
 [assembly: AssemblyFileVersion(UniverseLib.Universe.VERSION)]
 [assembly: KSPAssembly("UniverseLibKSP", 1, 0)]
+[assembly: KSPAssemblyDependency("HarmonyKSP", 1, 0)]

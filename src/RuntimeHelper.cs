@@ -19,11 +19,7 @@ namespace UniverseLib
 
         internal static void Init()
         {
-#if IL2CPP
-            Instance = new Runtime.Il2Cpp.Il2CppProvider();
-#else
             Instance = new Runtime.Mono.MonoProvider();
-#endif
             Instance.OnInitialize();
         }
 
